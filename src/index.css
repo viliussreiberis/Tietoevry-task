@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html {
+  /* 1rem = 10px */
+  font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+body {
+  font-size: 2rem;
+  color: #0c0c0c;
+  background-color: #ECF1EF;
+  font-family: 'Poppins', sans-serif;
+}
+
+button {
+  border: none;
+}
+
+.container{
+  padding: 3rem 15rem;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5rem;
+}
+
+.title {
+  font-size: 3rem;
+  margin: 2rem 0 5rem;
+  text-align: center;
+}
+
+.meals {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mealsContainer {
+  margin-top: 5rem;
+}
+
+@media only screen and (max-width: 1100px) {
+  .container{
+    padding: 3rem 3rem;
+  }
+}
+
+
+@media only screen and (max-width: 700px) {
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    
+  }
+}
