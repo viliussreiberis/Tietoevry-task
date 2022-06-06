@@ -2,13 +2,15 @@ import React, { useContext } from "react";
 import Meal from "../Meal/Meal";
 import styles from "./Meals.module.css";
 import MealsContext from "../../Context/MealsContext";
-
+import LoadingSpinner from "../LoadingSpinner.js/LoadingSpinner";
 const Meals = () => {
-  const { meals, showMeals } = useContext(MealsContext);
+  const { meals, showMeals, isLoading } = useContext(MealsContext);
+
   return (
     <>
-      {showMeals && (
-        <div className={styles.grid}>
+      {isLoading && <LoadingSpinner />}
+      {showMeals && !isLoading && (
+        <div id="meals" className={styles.grid}>
           {meals.map((item, i) => {
             return (
               <Meal

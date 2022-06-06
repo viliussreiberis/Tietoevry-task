@@ -1,0 +1,11 @@
+.loadingSpinner {
+    background-color: transparent;
+    border: 2px solid #4d4dff;
+    height: 4rem;
+    width: 4rem;
+    animation: loadingSpinner ease-out 1s infinite;
+}
+
+@keyframes loadingSpinner {
+    100% {transform: rotate(360deg);}
+}

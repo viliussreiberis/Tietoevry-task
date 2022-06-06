@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import styles from "./WeekMeals.module.css";
 import MealsContext from "../../Context/MealsContext";
 import DayMeals from "../DayMeals/DayMeals";
+import LoadingSpinner from "../LoadingSpinner.js/LoadingSpinner";
 
 const WeekMeals = () => {
-  const { meals, showWeek, mealsPerDay } = useContext(MealsContext);
+  const { meals, showWeek, mealsPerDay, isLoading } = useContext(MealsContext);
   const weekDays = [
     "Pirmadienis",
     "Antradienis",
@@ -23,8 +24,9 @@ const WeekMeals = () => {
 
   return (
     <>
-      {showWeek && (
-        <div>
+      {isLoading && <LoadingSpinner />}
+      {showWeek && !isLoading && (
+        <div id="weekMeals">
           <h2 className={styles.weekMealsTitle}>Savaitės meniu</h2>
           {!meals && <p>Loading...</p>}
           {meals?.length === 0 ? (

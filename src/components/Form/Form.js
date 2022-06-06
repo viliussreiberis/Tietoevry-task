@@ -29,6 +29,7 @@ const Form = () => {
     setMealsPerDay,
     setIsWrongForm,
     isWrongForm,
+    setIsLoading,
   } = useContext(MealsContext);
 
   const handleMaleState = () => {
@@ -61,6 +62,7 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     setMealsPerDay(mealsRef.current.value);
 
@@ -101,6 +103,7 @@ const Form = () => {
       );
       fetchData(from, carbs, proteins, season, to, setMeals);
     }
+    setIsLoading(false);
     setShowMeals(true);
     setDefaultValues(
       ageRef,
@@ -115,9 +118,13 @@ const Form = () => {
     setShowPartyMeals(false);
     setIsAnimation(true);
     setIsWrongForm(false);
+    setTimeout(() => {
+      document.getElementById("meals").scrollIntoView();
+    }, [1000]);
   };
 
   const handleWeekendMenu = (e) => {
+    setIsLoading(true);
     const [age, height, weight, meals, from, to, season] = getProperties(
       ageRef,
       heightRef,
@@ -152,6 +159,10 @@ const Form = () => {
       toRef,
       seasonRef
     );
+    setIsLoading(false);
+    setTimeout(() => {
+      document.getElementById("weekMeals").scrollIntoView();
+    }, [1000]);
   };
   return (
     <div>

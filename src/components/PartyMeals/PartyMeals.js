@@ -2,15 +2,16 @@ import React, { useContext, Fragment } from "react";
 import styles from "./PartyMeals.module.css";
 import MealsContext from "../../Context/MealsContext";
 import PartyMeal from "../PartyMeal/PartyMeal";
+import LoadingSpinner from "../LoadingSpinner.js/LoadingSpinner";
 
 const PartyMeals = () => {
-  const { friensdArr, showPartyMeals } = useContext(MealsContext);
+  const { friensdArr, showPartyMeals, isLoading } = useContext(MealsContext);
 
   return (
     <Fragment>
-      {!friensdArr && <p>Loading...</p>}
-      {showPartyMeals && (
-        <div className={styles.grid}>
+      {isLoading && <LoadingSpinner />}
+      {showPartyMeals && !isLoading && (
+        <div id="partyMeals" className={styles.grid}>
           {friensdArr.map((item, i) => {
             return (
               <PartyMeal

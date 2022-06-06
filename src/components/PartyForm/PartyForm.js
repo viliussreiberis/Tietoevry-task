@@ -9,11 +9,13 @@ const PartyForm = () => {
     setShowPartyMeals,
     setFriendsArr,
     setIsWrongForm,
+    setIsLoading,
   } = useContext(MealsContext);
   const friendNumRef = useRef();
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     setShowMeals(false);
     setShowWeek(false);
     let friendsNum = friendNumRef.current.value;
@@ -32,11 +34,17 @@ const PartyForm = () => {
       .then((response) => {
         setFriendsArr(response);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => {
+        setIsLoading(false);
+      });
 
     setShowPartyMeals(true);
     setIsWrongForm(false);
     friendNumRef.current.value = "";
+    setTimeout(() => {
+      document.getElementById("partyMeals").scrollIntoView();
+    }, [1000]);
   };
 
   return (

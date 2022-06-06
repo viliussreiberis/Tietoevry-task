@@ -10,6 +10,7 @@ export function MealsProvider({ children }) {
   const [friensdArr, setFriendsArr] = useState([]);
   const [mealsPerDay, setMealsPerDay] = useState(0);
   const [isWrongForm, setIsWrongForm] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <MealsContext.Provider
       value={{
@@ -27,6 +28,8 @@ export function MealsProvider({ children }) {
         setMealsPerDay,
         isWrongForm,
         setIsWrongForm,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}
