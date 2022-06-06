@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, Fragment } from "react";
 import Meal from "../Meal/Meal";
 import styles from "./Meals.module.css";
 import MealsContext from "../../Context/MealsContext";
@@ -7,10 +7,11 @@ const Meals = () => {
   const { meals, showMeals, isLoading } = useContext(MealsContext);
 
   return (
-    <>
+    <Fragment>
       {isLoading && <LoadingSpinner />}
       {showMeals && !isLoading && (
-        <div id="meals" className={styles.grid}>
+        <div id="mainMeals" className={styles.grid}>
+          <h1>Patiekalai</h1>
           {meals.map((item, i) => {
             return (
               <Meal
@@ -26,7 +27,7 @@ const Meals = () => {
           })}
         </div>
       )}
-    </>
+    </Fragment>
   );
 };
 

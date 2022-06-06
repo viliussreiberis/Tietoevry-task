@@ -114,13 +114,13 @@ const Form = () => {
       toRef,
       seasonRef
     );
+    setTimeout(() => {
+      document.getElementById("mainMeals").scrollIntoView();
+    }, [1000]);
     setShowWeek(false);
     setShowPartyMeals(false);
     setIsAnimation(true);
     setIsWrongForm(false);
-    setTimeout(() => {
-      document.getElementById("meals").scrollIntoView();
-    }, [1000]);
   };
 
   const handleWeekendMenu = (e) => {

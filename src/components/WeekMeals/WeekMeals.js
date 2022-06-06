@@ -28,7 +28,6 @@ const WeekMeals = () => {
       {showWeek && !isLoading && (
         <div id="weekMeals">
           <h2 className={styles.weekMealsTitle}>Savaitės meniu</h2>
-          {!meals && <p>Loading...</p>}
           {meals?.length === 0 ? (
             <p>Pagal Jūsų užklausą rezultatų nėra</p>
           ) : (
