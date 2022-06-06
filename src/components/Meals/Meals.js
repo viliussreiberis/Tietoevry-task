@@ -10,21 +10,23 @@ const Meals = () => {
     <Fragment>
       {isLoading && <LoadingSpinner />}
       {showMeals && !isLoading && (
-        <div id="mainMeals" className={styles.grid}>
+        <div id="mainMeals">
           <h1>Patiekalai</h1>
-          {meals.map((item, i) => {
-            return (
-              <Meal
-                key={i}
-                protein={item.protein}
-                carbs={item.carbs}
-                title={item.title}
-                calories={item.calories}
-                fat={item.fat}
-                image={item.image}
-              />
-            );
-          })}
+          <div className={styles.grid}>
+            {meals.map((item, i) => {
+              return (
+                <Meal
+                  key={i}
+                  protein={item.protein}
+                  carbs={item.carbs}
+                  title={item.title}
+                  calories={item.calories}
+                  fat={item.fat}
+                  image={item.image}
+                />
+              );
+            })}
+          </div>
         </div>
       )}
     </Fragment>
