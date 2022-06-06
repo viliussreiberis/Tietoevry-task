@@ -30,6 +30,7 @@ const Form = () => {
     setIsWrongForm,
     isWrongForm,
     setIsLoading,
+    isLoading,
   } = useContext(MealsContext);
 
   const handleMaleState = () => {
@@ -143,6 +144,7 @@ const Form = () => {
       season <= 0
     ) {
       setIsWrongForm(true);
+      setIsLoading(false);
       return;
     }
     handleSubmit(e);

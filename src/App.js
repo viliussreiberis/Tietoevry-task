@@ -11,7 +11,7 @@ function App() {
       <div className="container">
         <h1 className="title">
           Išsirink savo mėgstamą vegetarišką patiekalą, sudaryk savaitės meniu
-          ir surenk vegetarišką vakarėlį!
+          ir surenk vegetarišką vakarėlį !
         </h1>
         <div className="main-grid">
           <Form />
